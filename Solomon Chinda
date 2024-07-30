@@ -1,0 +1,41 @@
+  public PasswordManager() {
+        setTitle("Password Manager");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        websiteField = new JTextField(20);
+        usernameField = new JTextField(20);
+        passwordField = new JTextField(20);
+        passwordList = new JList<>();
+        listModel = new DefaultListModel<>();
+        passwordList.setModel(listModel);
+
+        addButton = new JButton("Add");
+        removeButton = new JButton("Remove");
+        saveButton = new JButton("Save");
+        loadButton = new JButton("Load");
+
+        JPanel inputPanel = new JPanel(new GridLayout(3, 2));
+        inputPanel.add(new JLabel("Website:"));
+        inputPanel.add(websiteField);
+        inputPanel.add(new JLabel("Username:"));
+        inputPanel.add(usernameField);
+        inputPanel.add(new JLabel("Password:"));
+        inputPanel.add(passwordField);
+
+        JPanel buttonPanel = new JPanel(new FlowLayout());
+        buttonPanel.add(addButton);
+        buttonPanel.add(removeButton);
+        buttonPanel.add(saveButton);
+        buttonPanel.add(loadButton);
+
+        getContentPane().setLayout(new BorderLayout());
+        getContentPane().add(inputPanel, BorderLayout.NORTH);
+        getContentPane().add(new JScrollPane(passwordList), BorderLayout.CENTER);
+        getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+
+        addButton.addActionListener(this);
+        removeButton.addActionListener(this);
+        saveButton.addActionListener(this);
+        loadButton.addActionListener(this);
+    }
