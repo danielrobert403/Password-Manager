@@ -1,0 +1,15 @@
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class PasswordManager extends JFrame implements ActionListener {
+    private JTextField websiteField, usernameField, passwordField;
+    private JList<String> passwordList;
+    private DefaultListModel<String> listModel;
+    private JButton addButton, removeButton, saveButton, loadButton;
+    private List<String> passwords = new ArrayList<>();
+    private final String FILENAME = "passwords.txt";
