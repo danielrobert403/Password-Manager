@@ -1,0 +1,25 @@
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == addButton) {
+            String website = websiteField.getText();
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+            if (!website.isEmpty() && !username.isEmpty() && !password.isEmpty()) {
+                String entry = website + ": " + username + " - " + password;
+                listModel.addElement(entry);
+                passwords.add(entry);
+                websiteField.setText("");
+                usernameField.setText("");
+                passwordField.setText("");
+            }
+        } else if (e.getSource() == removeButton) {
+            int selectedIndex = passwordList.getSelectedIndex();
+            if (selectedIndex != -1) {
+                listModel.remove(selectedIndex);
+                passwords.remove(selectedIndex);
+            }
+        } else if (e.getSource() == saveButton) {
+            savePasswordsToFile();
+        } else if (e.getSource() == loadButton) {
+            loadPasswordsFromFile();
+        }
+    }
