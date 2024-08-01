@@ -1,0 +1,18 @@
+  private void loadPasswordsFromFile() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILENAME))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                listModel.addElement(line);
+                passwords.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error loading passwords.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static void main(String[] args) {
+        PasswordManager manager = new PasswordManager();
+        manager.setVisible(true);
+    }
+}
